@@ -42,8 +42,13 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run script
-        run: node src/engine.js "${{ steps.move.outputs.value }}" && node src/drawBoard.js
+        run: |
+          node src/engine.js "${{ steps.move.outputs.value }}"
+          node src/drawBoard.js
 
       - name: Commit changes
         run: |
