@@ -11,7 +11,7 @@ function updateIds(readme) {
   const content = `<div align="center" style="font-size: 0;">\n${Array.from(
     { length: 7 },
     (_, index) =>
-      `<a href="https://github.com/MoDevIO/connect-four-readme/issues/new?body=Do%20not%20change%20the%20title&title=do_move%3A${index + 1}"><img src="./data/row${index + 1}.svg?id=${id}"></img></a>`,
+      `<a href="https://github.com/MoDevIO/connect-four-readme/issues/new?body=Do%20not%20change%20the%20title&title=do_move%3A${index + 1}"><img src="https://raw.githubusercontent.com/MoDevIO/connect-four-readme/refs/heads/main/data/row${index + 1}.svg?id=${id}"></img></a>`,
   ).join("\n")}\n</div>`;
 
   const markerPattern = new RegExp(
