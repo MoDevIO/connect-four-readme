@@ -49,14 +49,13 @@ jobs:
         run: |
           node src/engine.js "${{ steps.move.outputs.value }}"
           node src/drawBoard.js
-          node src/updateIds.js
 
-      - name: Commit changes
+      - name: Commit board changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A
+          git add data/moves.txt data/valid_moves.txt data/row*.svg
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
@@ -64,4 +63,18 @@ jobs:
           fi
 
           git commit -m "do_move: ${{ steps.move.outputs.value }}"
+
+      - name: Update README image URLs
+        run: node src/updateIds.js "$(git rev-parse HEAD)"
+
+      - name: Commit README changes
+        run: |
+          git add README.md
+
+          if git diff --cached --quiet; then
+            echo "No README changes to commit"
+            exit 0
+          fi
+
+          git commit -m "chore: update README image URLs"
           git push
