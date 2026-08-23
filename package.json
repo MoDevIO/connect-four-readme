@@ -1,0 +1,6 @@
+{
+	"type": "module",
+	"dependencies": {
+		"connect-four-ai-wasm": "^1.0.0"
+	}
+}

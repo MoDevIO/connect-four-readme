@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      connect-four-ai-wasm:
+        specifier: ^1.0.0
+        version: 1.0.0
+
+packages:
+
+  connect-four-ai-wasm@1.0.0:
+    resolution: {integrity: sha512-4kmr2/nATRbtBGvOsgsTaNUDirLh4Y309tIswBZLv3SC/RMLILpv7F//XfhVaZmG14aUNWMy3zetemXHh0eYPA==}
+
+snapshots:
+
+  connect-four-ai-wasm@1.0.0: {}
