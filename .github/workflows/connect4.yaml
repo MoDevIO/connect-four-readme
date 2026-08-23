@@ -43,7 +43,7 @@ jobs:
           node-version: 22
 
       - name: Run script
-        run: node script.js "${{ steps.move.outputs.value }}"
+        run: node src/engine.js "${{ steps.move.outputs.value }}" && node src/drawBoard.js
 
       - name: Commit changes
         run: |
