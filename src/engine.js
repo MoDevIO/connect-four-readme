@@ -2,7 +2,10 @@ import init, { AIPlayer, Position, Difficulty } from "connect-four-ai-wasm";
 import { readFile, writeFile } from "node:fs/promises";
 
 const wasm = await readFile(
-  "node_modules/.pnpm/connect-four-ai-wasm@1.0.0/node_modules/connect-four-ai-wasm/connect_four_ai_wasm_bg.wasm",
+  new URL(
+    "./connect_four_ai_wasm_bg.wasm",
+    import.meta.resolve("connect-four-ai-wasm"),
+  ),
 );
 
 await init({ module_or_path: wasm });
