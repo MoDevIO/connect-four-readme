@@ -55,7 +55,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/moves.txt data/valid_moves.txt data/row*.svg data/recent/
+          git add data/moves.txt data/valid_moves.txt data/row*.svg
+          if [ -d data/recent ]; then
+            git add data/recent/
+          fi
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
